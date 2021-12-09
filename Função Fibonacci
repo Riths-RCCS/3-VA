@@ -1,0 +1,31 @@
+#include <iostream>
+
+using namespace std;
+
+void fibonacciRecursivo(int limite, int ult = 1, int pen = 1) {
+    if (limite > 0) {
+        int prox = ult + pen;
+        cout << prox << " ";
+        fibonacciRecursivo(limite-1, pen, prox);
+    }
+}
+
+void fibonacciNaoRecursivo(int limite) {
+    int ult = 1, pen = 1, prox;
+
+    while (limite > 0) {
+        prox = ult + pen;
+        ult = pen;
+        pen = prox;
+        limite--;
+        cout << prox << " ";
+    }
+}
+
+int main() {
+    fibonacciNaoRecursivo(8);
+    cout << endl;
+    fibonacciRecursivo(8);
+
+    return 0;
+}
